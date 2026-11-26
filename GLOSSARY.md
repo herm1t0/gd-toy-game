@@ -169,3 +169,11 @@ _Avoid_: Damage number, popup, floating text
 **Splash ring**:
 The circle drawn at a **Mage** attack's **Landing point**, showing the area its **Splash** covers.
 _Avoid_: AoE indicator, blast radius
+
+**HUD**:
+The always-visible strip along the bottom of the screen: both **Bases**' health, the match clock, **Gold** and income, army count and **Spawn queue**, the **Build slot**, and the three **Recruit** buttons.
+_Avoid_: UI, overlay, status bar
+
+**Base menu**:
+The panel that opens above the **HUD** to buy an **Upgrade** or **Research**; the only place **Gold** is spent on anything but a **Recruit**.
+_Avoid_: Shop, build menu, upgrade screen
