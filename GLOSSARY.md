@@ -12,6 +12,10 @@ _Avoid_: Game, round, session
 A side's single structure: the source of its units and the only thing whose destruction ends a **Match**.
 _Avoid_: Building, main building, HQ, spawn point
 
+**Opponent**:
+The second side in a **Match**: the AI in the slice, a human once PvP arrives.
+_Avoid_: AI, bot, CPU
+
 **Base fire**:
 The **Base**'s own single-target ranged attack: weak, slow, and the only protection a side has at home. Its kills pay the defender the **Kill bounty**.
 _Avoid_: Turret, tower, garrison shot
