@@ -266,6 +266,106 @@ Sides with at least one build: 20/40. Sudden-death runs entering with equal Base
 | research nodes at end | 0,0 | 0,0 | 0,0 |
 | ability casts per side | 0,0 | 0,0 | 0,0 |
 
+### Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 6:00 (mirror)
+
+Runs: 20. Wins: team 0 14, team 1 6, draw 0, no result 0. Sudden death reached: 8.
+Sides with at least one build: 30/40. Sudden-death runs entering with equal Base HP: 2/8. Median deaths per minute per side: 6,4.
+
+| metric | min | median | max |
+|---|---|---|---|
+| duration (s) | 176,6 | 301,6 | 480,5 |
+| first unit clash (s) | 15,2 | 15,2 | 15,2 |
+| first base damage (s) | 110,2 | 202,3 | 453,8 |
+| base 0 below 50% (s) | 227,5 | 365,3 | 443,3 |
+| base 1 below 50% (s) | 148,6 | 223,9 | 443,3 |
+| first build started (s) | 20,5 | 21,3 | 350,5 |
+| army saturated, team 0 (s) | 140,5 | 220,5 | 440,5 |
+| army saturated, team 1 (s) | 270,5 | 322,8 | 330,5 |
+| purchases per side | 0,0 | 1,0 | 2,0 |
+| build slot idle % | 88,7 | 93,6 | 100,0 |
+| slot idle WITH an affordable node % | 0,2 | 0,4 | 0,7 |
+| recruits per side | 20,0 | 37,0 | 67,0 |
+| kills per side | 12,0 | 32,0 | 66,0 |
+| gold banked at end | 0,0 | 95,0 | 390,0 |
+| level sum at end (3 = all I) | 3,0 | 4,0 | 4,0 |
+| research nodes at end | 0,0 | 0,0 | 0,0 |
+| ability casts per side | 0,0 | 0,0 | 0,0 |
+
+### Probe #5: same, comeback (team 0 loses 2 units at 0:30 and 1:15)
+
+Runs: 20. Wins: team 0 7, team 1 13, draw 0, no result 0. Sudden death reached: 3.
+Sides with at least one build: 27/40. Sudden-death runs entering with equal Base HP: 1/3. Median deaths per minute per side: 5,6.
+
+| metric | min | median | max |
+|---|---|---|---|
+| duration (s) | 166,9 | 213,3 | 409,1 |
+| first unit clash (s) | 15,2 | 15,2 | 15,2 |
+| first base damage (s) | 54,1 | 118,7 | 373,7 |
+| base 0 below 50% (s) | 127,9 | 158,3 | 389,3 |
+| base 1 below 50% (s) | 158,7 | 254,8 | 390,4 |
+| first build started (s) | 20,5 | 20,5 | 272,0 |
+| army saturated, team 0 (s) | 160,5 | 241,5 | 361,0 |
+| army saturated, team 1 (s) | 121,5 | 160,5 | 340,5 |
+| purchases per side | 0,0 | 1,0 | 2,0 |
+| build slot idle % | 84,9 | 93,7 | 100,0 |
+| slot idle WITH an affordable node % | 0,2 | 0,3 | 0,6 |
+| recruits per side | 17,0 | 26,0 | 53,0 |
+| kills per side | 11,0 | 22,0 | 52,0 |
+| gold banked at end | 0,0 | 70,0 | 360,0 |
+| level sum at end (3 = all I) | 3,0 | 4,0 | 4,0 |
+| research nodes at end | 0,0 | 0,0 | 0,0 |
+| ability casts per side | 0,0 | 0,0 | 0,0 |
+
+### Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 7:00 (mirror)
+
+Runs: 20. Wins: team 0 14, team 1 6, draw 0, no result 0. Sudden death reached: 2.
+Sides with at least one build: 30/40. Sudden-death runs entering with equal Base HP: 1/2. Median deaths per minute per side: 6,4.
+
+| metric | min | median | max |
+|---|---|---|---|
+| duration (s) | 176,6 | 301,6 | 495,7 |
+| first unit clash (s) | 15,2 | 15,2 | 15,2 |
+| first base damage (s) | 110,2 | 202,3 | 453,8 |
+| base 0 below 50% (s) | 227,5 | 366,6 | 377,2 |
+| base 1 below 50% (s) | 148,6 | 223,9 | 472,3 |
+| first build started (s) | 20,5 | 21,3 | 350,5 |
+| army saturated, team 0 (s) | 140,5 | 220,5 | 440,5 |
+| army saturated, team 1 (s) | 270,5 | 322,8 | 330,5 |
+| purchases per side | 0,0 | 1,0 | 2,0 |
+| build slot idle % | 88,5 | 93,3 | 100,0 |
+| slot idle WITH an affordable node % | 0,2 | 0,4 | 0,8 |
+| recruits per side | 20,0 | 37,0 | 69,0 |
+| kills per side | 12,0 | 32,0 | 69,0 |
+| gold banked at end | 0,0 | 90,0 | 390,0 |
+| level sum at end (3 = all I) | 3,0 | 4,0 | 4,0 |
+| research nodes at end | 0,0 | 0,0 | 0,0 |
+| ability casts per side | 0,0 | 0,0 | 0,0 |
+
+### Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 7:30 (mirror)
+
+Runs: 20. Wins: team 0 14, team 1 6, draw 0, no result 0. Sudden death reached: 1.
+Sides with at least one build: 30/40. Sudden-death runs entering with equal Base HP: 1/1. Median deaths per minute per side: 6,4.
+
+| metric | min | median | max |
+|---|---|---|---|
+| duration (s) | 176,6 | 301,6 | 502,3 |
+| first unit clash (s) | 15,2 | 15,2 | 15,2 |
+| first base damage (s) | 110,2 | 202,3 | 453,8 |
+| base 0 below 50% (s) | 227,5 | 366,6 | 377,2 |
+| base 1 below 50% (s) | 148,6 | 223,9 | 483,8 |
+| first build started (s) | 20,5 | 21,3 | 350,5 |
+| army saturated, team 0 (s) | 140,5 | 220,5 | 440,5 |
+| army saturated, team 1 (s) | 270,5 | 322,8 | 330,5 |
+| purchases per side | 0,0 | 1,0 | 2,0 |
+| build slot idle % | 87,8 | 93,3 | 100,0 |
+| slot idle WITH an affordable node % | 0,2 | 0,4 | 0,8 |
+| recruits per side | 20,0 | 37,0 | 71,0 |
+| kills per side | 12,0 | 32,0 | 71,0 |
+| gold banked at end | 0,0 | 85,0 | 390,0 |
+| level sum at end (3 = all I) | 3,0 | 4,0 | 4,0 |
+| research nodes at end | 0,0 | 0,0 | 0,0 |
+| ability casts per side | 0,0 | 0,0 | 0,0 |
+
 
 ## One representative run (AI vs AI, 60 s samples)
 
@@ -279,11 +379,8 @@ Sides with at least one build: 20/40. Sudden-death runs entering with equal Base
 | 5:00 | 10000 | 10000 | 110 | 80 | 2 | 1 |
 | 6:00 | 10000 | 10000 | 120 | 90 | 2 | 1 |
 | 7:00 | 10000 | 10000 | 100 | 100 | 2 | 2 |
-| 8:00 | 10000 | 10000 | 160 | 160 | 1 | 1 |
-| 9:00 | 10000 | 10000 | 90 | 120 | 2 | 3 |
-| 10:00 | 10000 | 10000 | 80 | 110 | 2 | 3 |
-| 11:00 | 10000 | 10000 | 170 | 100 | 1 | 3 |
-| 12:00 | 9999 | 9999 | 160 | 90 | 1 | 3 |
-| 13:00 | 6327 | 6399 | 120 | 110 | 0 | 4 |
+| 8:00 | 8199 | 8199 | 160 | 160 | 1 | 1 |
+| 9:00 | 4599 | 4599 | 90 | 120 | 2 | 3 |
+| 10:00 | 999 | 999 | 80 | 110 | 2 | 3 |
 
-End: base destroyed at 13:53, team 1 wins; clash 0:15, first base damage 12:19
+End: draw at 10:16, team -1 wins; clash 0:15, first base damage 0:00

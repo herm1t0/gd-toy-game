@@ -28,7 +28,7 @@ static class K
     public const double BaseFireRange = 10.0;   // #11: "10 m from the Base's edge"
     public const double BaseFireInterval = 1.2;
     public const double MageSplash = 2.5;       // #7 basic attack, not an ability
-    public const double SuddenDeathFrom = 720.0;
+    public static double SuddenDeathFrom = 720.0;
     public static double SuddenDeathDps = 60.0;
 
     public static readonly int[] UpgradeCost = { 0, 200, 400 };
@@ -895,6 +895,10 @@ static class Program
         "Probe: AI vs AI, income x2 + 8-unit cap (ramp 3/5/8/8/8)",
         "Probe: AI vs AI, income x1.5 + 8-unit cap (ramp 3/5/8/8/8)",
         "Probe: AI vs AI, income x1.5 + 8-unit cap, ramp met by 2:00 (3/5/8)",
+        "Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 6:00 (mirror)",
+        "Probe #5: same, comeback (team 0 loses 2 units at 0:30 and 1:15)",
+        "Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 7:00 (mirror)",
+        "Probe #5: income x2 + 8-cap + ramp 3/5/8 by 2:00 + sudden death 7:30 (mirror)",
     };
 
     static void Main()
@@ -955,6 +959,31 @@ static class Program
             new[] { 4, 3, 1 },
         };
         results.AddRange(RunScenario(ScenarioNames[9], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[9])));
+
+        // #5's settled shape: income x2, 8-unit cap, ramp 3/5/8 by 2:00, sudden death from 6:00.
+        K.IncomeMultiplier = 2;
+        K.SuddenDeathFrom = 360.0;
+        Sim.RampTimes = new[] { 0.0, 60, 120 };
+        Sim.RampTotals = new[] { 3, 5, 8 };
+        Sim.RampClasses = new[]
+        {
+            new[] { 3, 0, 0 },
+            new[] { 4, 1, 0 },
+            new[] { 4, 3, 1 },
+        };
+        results.AddRange(RunScenario(ScenarioNames[10], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[10])));
+        results.AddRange(RunScenario(ScenarioNames[11], 20, seed =>
+        {
+            var sim = new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[11]);
+            sim.ScheduledLosses.Add((30, 0, 2));
+            sim.ScheduledLosses.Add((75, 0, 2));
+            return sim;
+        }));
+        K.SuddenDeathFrom = 420.0;
+        results.AddRange(RunScenario(ScenarioNames[12], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[12])));
+        K.SuddenDeathFrom = 450.0;
+        results.AddRange(RunScenario(ScenarioNames[13], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[13])));
+
         Sim.RampTimes = new[] { 0.0, 60, 180, 360, 480 };
         Sim.RampTotals = new[] { 3, 5, 8, 8, 8 };
         Sim.RampClasses = new[]
