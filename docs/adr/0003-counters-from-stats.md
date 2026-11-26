@@ -1,0 +1,7 @@
+# Counters come from stats, not targeting rules
+
+The slice has three classes and no player unit control, so a counter triangle cannot live in targeting logic the player never touches. Each class gets one six-field stat block — max HP, damage range, attack interval, attack range, body radius, fixed march speed — with no armour, no damage types and no class target preferences: every unit attacks the nearest enemy and sticks to it, as #6 fixed. Who beats whom is an emergent product of health, DPS, range and the mage's splash geometry: the warrior closes on the archer, the archer out-ranges and out-damages the mage, the mage punishes anything stacked.
+
+**Considered options:** hard rock-paper-scissors via target preferences (archers seek mages) — rejected because the player never issues that order, so the counter becomes a hidden lookup table instead of a composition read; armour or damage types — rejected as a second damage formula and second tuning axis with no agency to exploit it, invisible in a fight; flat damage — rejected as texture-free, since a small range leaves the average unchanged.
+
+**Consequences:** balance lives entirely in six numbers per class, so any new class, buff or aura reopens this decision; when composition feels flat the first lever is the mage's splash radius, never a targeting rule; the archer is the volatile class by construction, which #16 must confirm reads as a miss and not as a bug.

@@ -1,0 +1,7 @@
+# Progression is timed, and purchases share one build slot
+
+**Units** are bought instantly, but **Upgrades** and **Research** are not: each takes a **Build time**, and both compete for the single **Build slot** at the **Base**. Gold alone would have been enough to gate progress. The reason for the timer is that the slot, not gold, becomes the scarce thing — the player commits to one direction, and the opponent can read that commitment off the Base. Instant progression, which is what **Recruit** does, turns a 12-node tree into a shopping list filled in whatever order gold happens to allow.
+
+**Considered options:** instant upgrades like Recruit (no decision, only latency — gold already gates them); no slot limit, every purchase on its own timer (the timer becomes pure wait for the same purchases); per-class slots (three timers to watch, and it lets the player dodge the commitment); duration proportional to price (time would restate the price instead of being a second axis to tune).
+
+**Consequences:** the tree is a fork, not a checklist — a ~10-minute **Match** affords roughly 6–8 of the 12 nodes, so no player sees the whole thing; a long purchase is a visible commitment that the AI must be able to read and answer; #5's "3:00 first upgrade" beat means *started*, with the effect landing a **Build time** later, so the balance clock is validated against the durations and never the reverse; **Abilities** stay outside the upgrade track entirely, their numbers fixed, so the slot never buys extra damage for a class that has already researched.
