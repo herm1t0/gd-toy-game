@@ -144,25 +144,59 @@ draw whenever neither side got through, which is the exact case it exists to res
 
 ## The numbers to change, and why
 
-Ranked by how much of the failure each one removes. These are proposals for #11/#13/#5 to decide;
-this run does not change the tickets.
+The ticket asks for numbers, so here is the shortest coherent set that makes the slice's *features*
+visible (recruit, upgrade, research, AI opponent) in a match that ends. It is not a tuning pass; a
+tuning pass needs the economy rebuilt against the real death rate.
 
-1. **Army size vs replacement cost — the root.** Either:
-   - **accept 3–6-unit armies** and re-price everything around them (ramp 3/4/5/6/6, cap ~8, Base HP
-     down, research/upgrade prices to fit ~6 purchases); or
-   - **raise income ~2× and slow sieges to match.** Verified: income ×2 makes builds appear
-     (30/40 sides), but matches get *shorter* — 5:02 median — because bigger armies raze Bases
-     faster. Adding Base 16,000 HP + sudden death 90/s only recovers 5:47. So a second lever is
-     needed: Base HP ×2.5–3 (≈25–30k) or a slower siege.
-2. **Base fire range 10 m → 12.5 m.** Removes the free archer siege (finding 4). One number.
-3. **Sudden death needs a tie-break** before the drain (units alive, then gold, then total damage),
-   or a drain that is not exactly symmetric. Otherwise a stalemate is a draw, not a loss.
-4. **#11's budget needs one regime**: either 20–30 kills and no standing army, or a 15-unit army and
-   ≤8 deaths. It cannot be both.
-5. **#13's rule order** must change if the army is to have any quality: e.g. reserve a build price
-   before recruiting, or gate rule 1 on a floor (census < target *and* gold > next node price). With
-   rule 1 first, no attrition regime ever lets the AI build.
-6. **#5's beats** need re-deriving from travel + recruitment: first clash ~0:20, not 1:00.
+1. **Army cap 15 → 8, ramp → 3 / 5 / 8 by 2:00.** This is the army the match actually fields, and 8 is
+   exactly the number #11 sized Base HP and base slots against (8 attackers ≈ 30–40 s). The 3:00
+   composition row (4W / 3A / 1M) becomes the endgame army, so #13's composition table only loses its
+   last two rows. Base HP 10,000, base fire, sudden death 60/s and the 15:00 ceiling then all stand
+   unchanged.
+2. **Income 40/60/80 → 80/120/160 per 10 s (×2).** Measured: this is the only lever that makes the AI
+   build at all (2/40 → 30/40 sides), and it makes the 8-cap bind (~4:00). It is also the point where
+   income finally exceeds upkeep (12 vs ~10 gold/s).
+3. **Accept a ~5–6 minute match, or change TTK.** With ×2 income the median is 5:02 (range 3:13–8:36).
+   The 8–13 window is not reachable at the same time as a working build tree: to hold 10 minutes with
+   an army that can build, unit TTK must roughly double — which invalidates #7's 3–6 s clash and needs
+   #16 re-run. **This is the decision the dry run cannot make for you**: 5–6 minutes with progression,
+   or 10 minutes with none.
+4. **Base fire range 10 → 12.5 m.** Removes the free archer siege (8 archers, 0 losses, 0:55). One number,
+   and #6 already required it.
+5. **Sudden death needs a tie-break before the drain** (units alive, then gold, then total damage), or a
+   drain that is not exactly symmetric. Equal Base HP ⇒ identical drain ⇒ guaranteed draw — the normal
+   case (11/12 runs), not the edge one.
+6. **#13's rule order must change for research to exist.** Nothing in the economy gets a class to
+   Research while rule 1 (recruit first) is unguarded: the ladder buys II, then III, then Research, and
+   matches end after 1–2 purchases. Either reserve a build price before recruiting, or buy Research
+   before III for the class with the most census.
+
+Non-negotiables the probes did **not** support changing: the 100-gold recruit, the 30% bounty, the
+20/40/30 s build times, the 200/400/300 prices, 10,000 Base HP, and the three abilities — none of these
+is the binding constraint. The binding constraint is income vs death rate.
+
+## What each lever actually does (measured)
+
+Six probes, 20 seeds each, everything except the named lever held constant.
+
+| Probe | Median duration | Sides that built | Abilities cast | Saturation |
+|---|---|---|---|---|
+| Table as written (cap 15, income ×1) | 13:55 | 2 / 40 | 0 | never |
+| All unit damage ×0.65 (fights 1.5× longer) | 11:39 | 0 / 40 | 0 | never |
+| Income ×2 | 5:02 | 30 / 40 | 0 | 1 / 40 |
+| Income ×2 + Base 16,000 + sudden death 90/s | 5:47 | 30 / 40 | 0 | 1 / 40 |
+| Income ×2 + 8-unit cap (ramp 3/5/8/8/8) | 5:02 | 30 / 40 | 0 | 20 / 40, ~4:00 |
+| Income ×1.5 + 8-unit cap (ramp met by 2:00) | 8:33 | 20 / 40 | 0 | 20 / 40, ~7:30 |
+
+Read across the rows: **income is the only lever that turns builds on, and every increase in income shortens
+the match.** The 8–13 window can be hit (×1.5, 8:15–8:33) only at the price of builds (20/40 sides, 0–2
+purchases, still no research). Research is never bought anywhere, because #13's ladder spends 600 gold on
+II and III before a class's 300-gold Research gets a turn — the ladder only reaches a second purchase in
+the ×2 probes.
+
+The arithmetic behind it: at the observed death rate (one unit per ~10 s per side, 100 gold each) upkeep
+is **10–15 gold/s**. #11's income is **4–8 gold/s**. The economy is priced at roughly a third of the
+upkeep its own combat generates, and the build tree is the leftover that never exists.
 
 ## Does the verdict depend on the model's simplifications?
 

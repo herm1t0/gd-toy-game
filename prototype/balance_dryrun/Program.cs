@@ -21,7 +21,7 @@ static class K
     public const double Dt = 1.0 / 60.0;
 
     // #5 / #11 economy
-    public const int ArmyCap = 15;
+    public static int ArmyCap = 15;
     public const int RecruitCost = 100;
     public const int Bounty = 30;
     public static int BaseHp = 10_000;
@@ -40,7 +40,7 @@ static class K
     // Sensitivity knobs only: 1.0 is the table as written (#7). Used by probes that
     // stretch fights or fatten income to check whether the pacing verdict depends on them.
     public static double DamageScale = 1.0;
-    public static int IncomeMultiplier = 1;
+    public static double IncomeMultiplier = 1;
 
     public static readonly Def[] Defs =
     {
@@ -589,7 +589,7 @@ sealed class Sim
     void IncomeTick()
     {
         if (Tick % 600 != 0) return;          // every 10 s of sim time
-        int g = IncomeRate(T) * K.IncomeMultiplier;
+        int g = (int)Math.Round(IncomeRate(T) * K.IncomeMultiplier);
         Sides[0].Gold += g;
         Sides[1].Gold += g;
     }
@@ -618,9 +618,9 @@ sealed class Sim
     }
 
     // ---------- the #13 ladder and the greedy yardstick ----------
-    static readonly double[] RampTimes = { 0, 60, 180, 360, 480 };
-    static readonly int[] RampTotals = { 3, 5, 8, 12, 15 };
-    static readonly int[][] RampClasses =
+    public static double[] RampTimes = { 0, 60, 180, 360, 480 };
+    public static int[] RampTotals = { 3, 5, 8, 12, 15 };
+    public static int[][] RampClasses =
     {
         new[] { 3, 0, 0 },
         new[] { 4, 1, 0 },
@@ -892,6 +892,9 @@ static class Program
         "Sensitivity: AI vs AI, unit damage x0.65 (fights ~1.5x longer)",
         "Probe: AI vs AI, income x2",
         "Probe: AI vs AI, income x2 + Base 16,000 + sudden death 90/s",
+        "Probe: AI vs AI, income x2 + 8-unit cap (ramp 3/5/8/8/8)",
+        "Probe: AI vs AI, income x1.5 + 8-unit cap (ramp 3/5/8/8/8)",
+        "Probe: AI vs AI, income x1.5 + 8-unit cap, ramp met by 2:00 (3/5/8)",
     };
 
     static void Main()
@@ -927,6 +930,52 @@ static class Program
         K.IncomeMultiplier = 1;
         K.BaseHp = 10_000;
         K.SuddenDeathDps = 60;
+
+        K.IncomeMultiplier = 2;
+        K.ArmyCap = 8;
+        Sim.RampTotals = new[] { 3, 5, 8, 8, 8 };
+        Sim.RampClasses = new[]
+        {
+            new[] { 3, 0, 0 },
+            new[] { 4, 1, 0 },
+            new[] { 4, 3, 1 },
+            new[] { 5, 2, 1 },
+            new[] { 5, 2, 1 },
+        };
+        results.AddRange(RunScenario(ScenarioNames[7], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[7])));
+        K.IncomeMultiplier = 1.5;
+        results.AddRange(RunScenario(ScenarioNames[8], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[8])));
+
+        Sim.RampTimes = new[] { 0.0, 60, 120 };
+        Sim.RampTotals = new[] { 3, 5, 8 };
+        Sim.RampClasses = new[]
+        {
+            new[] { 3, 0, 0 },
+            new[] { 4, 1, 0 },
+            new[] { 4, 3, 1 },
+        };
+        results.AddRange(RunScenario(ScenarioNames[9], 20, seed => new Sim(seed, Policy.Ai, Policy.Ai, ScenarioNames[9])));
+        Sim.RampTimes = new[] { 0.0, 60, 180, 360, 480 };
+        Sim.RampTotals = new[] { 3, 5, 8, 8, 8 };
+        Sim.RampClasses = new[]
+        {
+            new[] { 3, 0, 0 },
+            new[] { 4, 1, 0 },
+            new[] { 4, 3, 1 },
+            new[] { 5, 2, 1 },
+            new[] { 5, 2, 1 },
+        };
+        K.IncomeMultiplier = 1;
+        K.ArmyCap = 15;
+        Sim.RampTotals = new[] { 3, 5, 8, 12, 15 };
+        Sim.RampClasses = new[]
+        {
+            new[] { 3, 0, 0 },
+            new[] { 4, 1, 0 },
+            new[] { 4, 3, 1 },
+            new[] { 6, 4, 2 },
+            new[] { 7, 5, 3 },
+        };
 
         W("");
         W("## Results");
