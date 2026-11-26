@@ -52,7 +52,11 @@ A human player's declaration of defeat. The AI opponent never does this.
 _Avoid_: Surrender, forfeit
 
 **Draw**:
-The outcome where both **Bases** die on the same tick of **Sudden death**. The only non-decisive ending.
+The outcome where both **Bases** die on the same tick of **Sudden death** and the **Sudden death tie-break** is level. The only non-decisive ending.
+
+**Sudden death tie-break**:
+The order that decides a **Match** whose **Bases** died on the same tick of **Sudden death**: the larger army (living **Units** plus the **Spawn queue**), then more **Gold**, then a **Draw**.
+_Avoid_: Coin flip, sudden-death winner, HP tiebreak
 
 ## Progression
 
@@ -177,3 +181,21 @@ _Avoid_: UI, overlay, status bar
 **Base menu**:
 The panel that opens above the **HUD** to buy an **Upgrade** or **Research**; the only place **Gold** is spent on anything but a **Recruit**.
 _Avoid_: Shop, build menu, upgrade screen
+
+## Shell
+
+**Shell**:
+Everything around a **Match**: the main menu, **Pause** and the **End screen**. The **HUD** and **Base menu** belong to the **Match**, not the **Shell**.
+_Avoid_: UI, front end, meta, menus
+
+**Pause**:
+The state where the **Match** clock and simulation are frozen and the player chooses between resuming, **Conceding**, the main menu and quitting.
+_Avoid_: Break, time-out, hang
+
+**End screen**:
+The panel shown once a **Match** is over, reporting **Victory**, **Defeat** or **Draw** with the final match clock, and offering a **Rematch** or an exit.
+_Avoid_: Results screen, summary, game over
+
+**Rematch**:
+A fresh **Match** started from the **End screen**; nothing carries over from the previous one.
+_Avoid_: Restart, retry, replay
